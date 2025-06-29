@@ -1,6 +1,6 @@
 # WhisperVoice
 WhisperVoice: Covert voice notes. Encrypts text and hides it via LLM-generated acrostic sentences. Murf.ai creates natural audio. Browser extension decrypts with passcode, revealing hidden message or playing decoy for unauthorized listeners. Uses LLM, Murf.ai, STT APIs
-# WhisperVoice: Covert Communication via AI Voice Notes
+# WhisperVoice: Hide Secret Messages Inside Natural Voice Notes
 
 ## Project Overview
 
@@ -75,4 +75,203 @@ WhisperVoice leverages the power of three distinct APIs to achieve its goal of d
 * **Journalism & Activism:** Protecting sources and sensitive information in high-stakes environments.
 
 * **Personal Privacy:** A novel and secure way to exchange private messages, adding intrigue to communication.
+
+*(This should be the folder containing `manifest.json`)*
+
+6. The WhisperVoice extension (sender and receiver) will now appear in your browser.
+
+---
+
+## ⚙️ Configuration
+
+Both sender and receiver require API keys for external services.
+
+### 🎯 Get API Keys
+
+#### LLM API Key (e.g., Gemini)
+
+1. Go to [Google AI Studio](https://makersuite.google.com/) (or your chosen LLM provider).
+2. Sign in with your Google account.
+3. Create a new API key.
+4. Copy the key for use in the extension.
+
+#### Murf.ai API Key
+
+1. Sign up at [Murf.ai](https://murf.ai).
+2. Subscribe to a plan that includes API access.
+3. Go to your account settings to find your API key.
+4. Copy the key for use in the extension.
+
+#### Speech-to-Text API Key (e.g., AssemblyAI)
+
+1. Sign up at [AssemblyAI](https://www.assemblyai.com) (or your chosen STT provider).
+2. Get your API key from the dashboard.
+3. Copy the key for use in the extension.
+
+---
+
+### 🔧 Configure the Extension
+
+1. Click the WhisperVoice icon in your browser toolbar.
+2. In the settings interface:
+- Enter your LLM (Gemini/ChatGPT) API key.
+- Enter your Murf.ai API key.
+- Enter your STT (AssemblyAI) API key.
+- Set the **Playfair Keyword** (shared secret) for encryption/decryption.
+3. Click **Save Keys/Settings**.
+
+✅ You are now ready to send and receive covert voice messages!
+
+---
+
+## ✉️ How to Use
+
+### A. Sending a Covert Voice Message
+
+1. **Enter Your Secret Message**
+
+Type the confidential message into the sender interface.
+
+2. **Set Encryption Parameters**
+- Ensure your Playfair keyword is correctly configured.
+- Set a **passcode** (required for the receiver).
+
+3. **Choose Cover Theme (Optional)**
+Select a theme (e.g., work, college, family) to guide the LLM in generating a decoy sentence.
+
+4. **Select Voice (Optional)**
+Pick from available Murf.ai voice options.
+
+5. **Generate**
+- Encrypt your message with the Playfair cipher.
+- Generate a decoy sentence where the first letters encode the ciphertext.
+- Convert it to audio via Murf.ai.
+
+6. **Share**
+Download the audio file (MP3, WAV, etc.) and share via WhatsApp, email, etc.
+
+---
+
+### B. Receiving and Decrypting a Covert Voice Message
+
+**You can start decryption in two ways:**
+
+#### Method 1: Floating Button
+- Navigate to any website.
+- Look for the blue WhisperVoice button in the bottom-right corner.
+- Click to open the upload modal.
+
+#### Method 2: Extension Popup
+- Click the WhisperVoice icon in the toolbar.
+- Use the popup for quick access.
+
+---
+
+### 🛡️ Decryption Process
+
+1. **Upload Audio**
+- Drag & drop or browse to select the audio file.
+- Supported formats: MP3, WAV, M4A, OGG, WebM.
+
+2. **Enter Passcode**
+- Input the passcode shared by the sender.
+
+3. **Click Decrypt**
+- The extension will:
+  - Transcribe the audio via the STT API.
+  - Extract the hidden ciphertext.
+  - Decrypt using the Playfair keyword.
+  - (Optional) Convert the decrypted text back to speech.
+
+4. **View Results**
+- See the decrypted secret message.
+- Optionally play the synthesized audio.
+
+---
+
+## 🧠 Technical Details & How It Works
+
+- **Encryption:** Playfair cipher using a shared keyword.
+- **Steganography:** 
+- Encoding: LLM generates a sentence where the first letter of each word encodes the ciphertext.
+- Decoding: The extension extracts the first letters after transcription.
+- **Voice Synthesis:** Murf.ai API.
+- **Speech-to-Text:** AssemblyAI (or your chosen STT provider).
+
+---
+
+## 🎵 Supported Audio Formats
+- MP3
+- WAV
+- M4A
+- OGG
+- WebM
+
+---
+
+## 🔒 Privacy & Security
+
+- **Multi-layer Protection:** Encryption + steganography.
+- **Passcode Protection:** Extra layer on the receiver side.
+- **Natural Cover:** AI-generated sentences avoid suspicion.
+- **Local Processing:** Encryption/decryption happens in-browser.
+- **Secure API Key Storage:** Stored in Chrome's local storage.
+- **No Permanent Storage:** Audio and transcriptions are discarded after processing.
+
+---
+
+## 💻 User Interface Highlights
+
+- **Floating Button:** Quick access from any page.
+- **Upload Modal:** Drag & drop files, enter passcode, see progress.
+- **Results Display:** Decrypted message, optional audio playback.
+
+---
+
+## 🛠️ Troubleshooting
+
+**Common Issues:**
+
+- **Upload Fails:** Check file format, size, and connection.
+- **API Errors:** Verify keys and API quotas.
+- **Decryption Fails:** Ensure matching Playfair keyword and clear audio.
+- **No Speech Detected:** Try clearer audio or another file.
+
+**Error Examples:**
+- `Configuration Required`: API keys missing.
+- `Invalid file format`: Unsupported audio.
+- `No speech detected`: STT could not transcribe.
+- `Decryption failed`: Wrong passcode or keyword.
+
+---
+
+**Key Components**
+- **WhisperVoice Core:** Encryption, steganography, API integration.
+- **PlayfairCipher Class:** Cryptographic operations.
+- **UI Modules:** Sender interface, upload modal, results display.
+- **API Modules:** Gemini/Murf/STT communication.
+
+---
+
+## ⚠️ Disclaimer
+
+This extension is for educational, personal, and legitimate privacy uses only. You are responsible for complying with applicable laws and third-party API terms of service.
+
+---
+
+## 📝 Version History
+
+**v1.0.0 (Initial Release)**
+- Playfair cipher encryption/decryption.
+- LLM-powered first-letter steganography.
+- Murf.ai TTS integration.
+- AssemblyAI STT integration.
+- Chrome extension sender/receiver UI.
+- API key management.
+- Basic error handling and troubleshooting.
+- Multi-format audio support.
+
+---
+
+
 
