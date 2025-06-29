@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhisperVoice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">🎵</div>
+                <h1>WhisperVoice</h1>
+            </div>
+            <p class="tagline">Secure Steganography Messaging</p>
+        </header>
+
+        <div class="content">
+            <!-- API Configuration Section -->
+            <div class="section api-config" id="apiSection">
+                <h3>🔧 API Configuration</h3>
+                <div class="input-group">
+                    <label for="geminiApiKey">Gemini API Key:</label>
+                    <input type="password" id="geminiApiKey" placeholder="Enter your Gemini API key">
+                </div>
+                <div class="input-group">
+                    <label for="murfApiKey">Murf.ai API Key:</label>
+                    <input type="password" id="murfApiKey" placeholder="Enter your Murf.ai API key">
+                </div>
+                <button class="btn btn-secondary" id="saveApiKeys">Save Keys</button>
+            </div>
+
+            <!-- Message Input Section -->
+            <div class="section message-input">
+                <h3>📝 Secret Message</h3>
+                <div class="input-group">
+                    <label for="secretMessage">Your Secret Message:</label>
+                    <textarea id="secretMessage" placeholder="Enter your secret message here..." rows="3"></textarea>
+                </div>
+                
+                <div class="input-group">
+                    <label for="keyword">Security Key (Encryption & Passcode):</label>
+                    <input type="text" id="keyword" placeholder="Enter your security key">
+                    <small class="input-hint">This key will be used for both encryption and verification</small>
+                </div>
+            </div>
+
+            <!-- Theme Selection Section -->
+            <div class="section theme-selection">
+                <h3>🎯 Cover Message Theme</h3>
+                <div class="input-group">
+                    <label for="themeSelect">Select Theme:</label>
+                    <select id="themeSelect">
+                        <option value="general">General Conversation</option>
+                        <option value="college">College/University</option>
+                        <option value="work">Work/Business</option>
+                        <option value="family">Family</option>
+                        <option value="sports">Sports</option>
+                        <option value="travel">Travel</option>
+                        <option value="food">Food & Dining</option>
+                        <option value="technology">Technology</option>
+                        <option value="custom">Custom Theme</option>
+                    </select>
+                </div>
+                
+                <div class="input-group" id="customThemeGroup" style="display: none;">
+                    <label for="customTheme">Custom Theme Description:</label>
+                    <input type="text" id="customTheme" placeholder="Describe your custom theme...">
+                </div>
+            </div>
+
+            <!-- Voice Selection -->
+            <div class="section voice-selection">
+                <h3>🎤 Voice Settings</h3>
+                <div class="input-group">
+                    <label for="voiceSelect">Select Voice:</label>
+                    <select id="voiceSelect">
+                        <option value="en-US-natalie">Natalie (US Female)</option>
+                        <option value="en-US-daniel">Daniel (US Male)</option>
+                        <option value="en-US-sarah">Sarah (US Female)</option>
+                        <option value="en-US-michael">Michael (US Male)</option>
+                        <option value="en-GB-emma">Emma (UK Female)</option>
+                        <option value="en-GB-james">James (UK Male)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-section">
+                <button class="btn btn-primary" id="generateBtn">
+                    <span class="btn-icon">🚀</span>
+                    Generate Covert Voice Message
+                </button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="section results" id="resultsSection" style="display: none;">
+                <h3>✅ Generated Content</h3>
+                
+                <div class="result-item">
+                    <label>Encrypted Text:</label>
+                    <div class="result-content" id="encryptedText"></div>
+                </div>
+                
+                <div class="result-item">
+                    <label>Cover Sentence:</label>
+                    <div class="result-content" id="coverSentence"></div>
+                </div>
+                
+                <div class="result-item">
+                    <label>Voice Message:</label>
+                    <div class="audio-container">
+                        <audio id="generatedAudio" controls style="display: none;"></audio>
+                        <button class="btn btn-secondary" id="downloadBtn" style="display: none;">
+                            <span class="btn-icon">⬇️</span>
+                            Download Audio
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Section -->
+            <div class="loading" id="loadingSection" style="display: none;">
+                <div class="spinner"></div>
+                <p>Processing your message...</p>
+            </div>
+
+            <!-- Status Messages -->
+            <div class="status-message" id="statusMessage"></div>
+        </div>
+    </div>
+
+    <script src="playfair.js"></script>
+    <script src="api-handler.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
