@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhisperVoice Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <h1>WhisperVoice</h1>
+      </div>
+      <div class="status" id="status">
+        <span class="status-dot"></span>
+        <span>Ready</span>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h2>API Configuration</h2>
+      
+      <div class="input-group">
+        <label for="assemblyai-key">AssemblyAI API Key</label>
+        <input type="password" id="assemblyai-key" placeholder="Enter your AssemblyAI API key">
+        <button type="button" class="toggle-visibility" data-target="assemblyai-key">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="input-group">
+        <label for="murf-key">Murf.ai API Key</label>
+        <input type="password" id="murf-key" placeholder="Enter your Murf.ai API key">
+        <button type="button" class="toggle-visibility" data-target="murf-key">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="input-group">
+        <label for="playfair-keyword">Playfair Keyword</label>
+        <input type="text" id="playfair-keyword" placeholder="Enter Playfair cipher keyword">
+      </div>
+
+      <button id="save-settings" class="btn-primary">Save Settings</button>
+    </div>
+
+    <div class="stats-section">
+      <h2>Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number" id="messages-decrypted">0</span>
+          <span class="stat-label">Messages Decrypted</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="voice-notes-processed">0</span>
+          <span class="stat-label">Voice Notes Processed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Secure • Private • Encrypted</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

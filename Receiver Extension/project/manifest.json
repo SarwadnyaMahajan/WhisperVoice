@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "WhisperVoice - Audio Message Decryptor",
+  "version": "1.0.0",
+  "description": "Decrypt hidden messages from audio files using AI-powered steganography",
+  "permissions": [
+    "storage",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://api.assemblyai.com/*",
+    "https://api.murf.ai/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "WhisperVoice Settings"
+  }
+}
