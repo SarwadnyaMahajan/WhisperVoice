@@ -75,6 +75,25 @@ WhisperVoice leverages the power of three distinct APIs to achieve its goal of d
 * **Journalism & Activism:** Protecting sources and sensitive information in high-stakes environments.
 
 * **Personal Privacy:** A novel and secure way to exchange private messages, adding intrigue to communication.
+* # WhisperVoice Chrome Extension
+
+**Covert Voice Message Encryption and Steganography**
+
+---
+
+## 🚀 Installation
+
+To install both the sender and receiver extensions:
+
+1. **Clone this repository** or download the source code as a ZIP file and extract it.
+
+2. Open your Chrome browser and navigate to `chrome://extensions/`.
+
+3. Enable **Developer mode** in the top right corner.
+
+4. Click **Load unpacked**.
+
+5. Select the folder containing the extension files:
 
 *(This should be the folder containing `manifest.json`)*
 
